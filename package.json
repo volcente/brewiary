@@ -1,29 +1,45 @@
 {
-  "name": "coffee-brew",
+  "name": "brewiary",
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:codegen": "kysely-codegen --dialect postgres --out-file ./src/db/types.d.ts",
+    "db:seed": "tsx src/db/seed.ts",
+    "db:migrate-up": "tsx src/db/migrate-up.ts",
+    "db:migrate-down": "tsx src/db/migrate-down.ts",
+    "db:migrate-latest": "tsx src/db/migrate-latest.ts"
   },
   "dependencies": {
+    "@t3-oss/env-nextjs": "^0.13.4",
+    "dotenv": "^16.5.0",
+    "kysely": "^0.28.2",
     "next": "15.3.2",
+    "pg": "^8.16.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "zod": "^3.25.28"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/eslint-plugin-next": "^15.1.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.15.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "jiti": "^2.4.2",
+    "kysely-codegen": "^0.18.5",
     "tailwindcss": "^4",
+    "tsx": "^4.19.4",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }
