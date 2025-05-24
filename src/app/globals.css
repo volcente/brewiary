@@ -1,5 +1,0 @@
-@import "tailwindcss";
-
-@theme inline {
-  --font-display: var(--font-geist-sans), var(--font-sans);
-}

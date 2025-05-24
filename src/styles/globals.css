@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-space-grotesk), var(--font-sans);
+}
