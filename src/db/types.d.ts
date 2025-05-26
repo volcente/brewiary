@@ -3,4 +3,33 @@
  * Please do not edit it manually.
  */
 
-export interface DB {}
+import type { ColumnType } from "kysely";
+
+export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
+  ? ColumnType<S, I | undefined, U>
+  : ColumnType<T, T | undefined, T>;
+
+export type Timestamp = ColumnType<Date, Date | string, Date | string>;
+
+export interface Person {
+  created_at: Generated<Timestamp>;
+  first_name: string;
+  gender: string;
+  id: string;
+  last_name: string | null;
+  updated_at: Generated<Timestamp>;
+}
+
+export interface Pet {
+  created_at: Generated<Timestamp>;
+  id: string;
+  name: string;
+  owner_id: string;
+  species: string;
+  updated_at: Generated<Timestamp>;
+}
+
+export interface DB {
+  person: Person;
+  pet: Pet;
+}

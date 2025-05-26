@@ -3,23 +3,32 @@ import { Kysely, sql } from "kysely";
 export async function up(db: Kysely<unknown>): Promise<void> {
   await db.schema
     .createTable("person")
-    .addColumn("id", "serial", (col) => col.primaryKey())
+    .addColumn("id", "uuid", (col) => col.primaryKey())
     .addColumn("first_name", "varchar", (col) => col.notNull())
     .addColumn("last_name", "varchar")
     .addColumn("gender", "varchar(50)", (col) => col.notNull())
     .addColumn("created_at", "timestamp", (col) =>
       col.defaultTo(sql`now()`).notNull()
     )
+    .addColumn("updated_at", "timestamp", (col) =>
+      col.defaultTo(sql`now()`).notNull()
+    )
     .execute();
 
   await db.schema
     .createTable("pet")
-    .addColumn("id", "serial", (col) => col.primaryKey())
-    .addColumn("name", "varchar", (col) => col.notNull().unique())
-    .addColumn("owner_id", "integer", (col) =>
+    .addColumn("id", "uuid", (col) => col.primaryKey())
+    .addColumn("name", "varchar", (col) => col.notNull())
+    .addColumn("species", "varchar", (col) => col.notNull())
+    .addColumn("created_at", "timestamp", (col) =>
+      col.defaultTo(sql`now()`).notNull()
+    )
+    .addColumn("updated_at", "timestamp", (col) =>
+      col.defaultTo(sql`now()`).notNull()
+    )
+    .addColumn("owner_id", "uuid", (col) =>
       col.references("person.id").onDelete("cascade").notNull()
     )
-    .addColumn("species", "varchar", (col) => col.notNull())
     .execute();
 
   await db.schema
