@@ -11,24 +11,24 @@ const seedPersonTable = async () => {
     persons.map(() => {
       const id = faker.string.uuid();
       const gender = faker.person.sex() as SexType;
-      const first_name = faker.person.firstName(gender);
-      const last_name = faker.person.lastName(gender);
+      const firstName = faker.person.firstName(gender);
+      const lastName = faker.person.lastName(gender);
 
       return db
         .insertInto("person")
         .values({
-          first_name,
+          firstName,
           id,
-          last_name,
+          lastName,
           gender,
-          created_at: sql<Date>`now()`,
+          createdAt: sql<Date>`now()`,
         })
         .onConflict((oc) =>
           oc.column("id").doUpdateSet({
-            first_name,
-            last_name,
+            firstName,
+            lastName,
             gender,
-            updated_at: sql<Date>`now()`,
+            updatedAt: sql<Date>`now()`,
           })
         )
         .execute();
@@ -51,7 +51,7 @@ const seedPetTable = async () => {
   const MAX_ANIMAL_COUNT = 4;
 
   await Promise.all(
-    persons.map(async ({ id: owner_id }) => {
+    persons.map(async ({ id: ownerId }) => {
       const petNumber = faker.number.int({
         min: MIN_ANIMAL_COUNT,
         max: MAX_ANIMAL_COUNT,
@@ -73,7 +73,7 @@ const seedPetTable = async () => {
               id,
               name,
               species,
-              owner_id,
+              ownerId,
             };
           })
         )
@@ -81,7 +81,7 @@ const seedPetTable = async () => {
           cb.column("id").doUpdateSet(({ eb }) => ({
             name: eb.ref("excluded.name"),
             species: eb.ref("excluded.species"),
-            updated_at: sql<Date>`now()`,
+            updatedAt: sql<Date>`now()`,
           }))
         )
         .execute();

@@ -1,0 +1,6 @@
+{
+  "camelCase": true,
+  "dialect": "postgres",
+  "envFile": ".env.local",
+  "outFile": "./src/db/types.d.ts"
+}

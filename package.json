@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:codegen": "kysely-codegen --dialect postgres --out-file ./src/db/types.d.ts",
+    "db:codegen": "kysely-codegen",
     "db:seed": "tsx src/db/seed.ts",
     "db:migration": "tsx src/db/migration.ts",
     "db:migrate-up": "tsx src/db/migrate-up.ts",

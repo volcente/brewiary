@@ -7,18 +7,18 @@ import { z } from "zod";
 
 const rootDir = cwd();
 
-// Load precedence for .env.* files goes from the most local one to the most general, ex. ".env.development.local > .env.local > .env.development > .env"
-
-// Load default .env
-config();
-// Load environment specific .env
+config({
+  path: resolve(rootDir, ".env"),
+  override: true,
+});
 config({
   path: resolve(rootDir, `.env.${process.env.NODE_ENV}`),
   override: true,
 });
-// Load local environemnt
-config({ path: resolve(rootDir, `.env.local`), override: true });
-// Load local environment specific .env
+config({
+  path: resolve(rootDir, `.env.local`),
+  override: true,
+});
 config({
   path: resolve(rootDir, `.env.${process.env.NODE_ENV}.local`),
   override: true,
