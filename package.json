@@ -9,6 +9,7 @@
     "lint": "next lint",
     "db:codegen": "kysely-codegen --dialect postgres --out-file ./src/db/types.d.ts",
     "db:seed": "tsx src/db/seed.ts",
+    "db:migration": "tsx src/db/migration.ts",
     "db:migrate-up": "tsx src/db/migrate-up.ts",
     "db:migrate-down": "tsx src/db/migrate-down.ts",
     "db:migrate-latest": "tsx src/db/migrate-latest.ts"

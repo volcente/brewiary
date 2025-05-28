@@ -1,4 +1,4 @@
-export default function Home() {
+export default async function Home() {
   return (
     <div className="grid min-h-screen w-full p-8 place-content-center">
       <article className="flex flex-col gap-2">

@@ -1,18 +1,18 @@
-import { promises } from "fs";
+import { promises as fs } from "fs";
 import { FileMigrationProvider, Migrator } from "kysely";
-import path from "path";
+import path, { join } from "path";
 
 import { db } from "./db";
+
+const rootDir = process.cwd();
+const migrationFolder = join(rootDir, "/src/db/migrations");
 
 export const migrator = new Migrator({
   db,
   provider: new FileMigrationProvider({
-    fs: promises,
+    fs,
     path,
-    migrationFolder: path.join(
-      path.resolve(import.meta.dirname),
-      "/migrations"
-    ),
+    migrationFolder,
   }),
 });
 
@@ -24,7 +24,7 @@ export const migrate = async (direction: "up" | "down" | "latest") => {
       ? await migrator.migrateUp()
       : await migrator.migrateToLatest();
 
-  if (!(error || results?.length)) {
+  if (!error && !results?.length) {
     console.log("No migrations executed.");
     process.exit(0);
   }
@@ -48,4 +48,5 @@ export const migrate = async (direction: "up" | "down" | "latest") => {
   }
 
   await db.destroy();
+  process.exit(0);
 };
