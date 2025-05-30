@@ -19,7 +19,7 @@
     "db:migrate-latest": "tsx src/db/migrate-latest.ts",
     "ci:migrate-and-seed": "pnpm db:migrate-latest && pnpm db:seed",
     "ci:codegen-and-validate": "pnpm db:codegen-ci && pnpm db:validate-ci",
-    "ci:build": "pnpm ci:migrate-and-seed && pnpm ci:codegen-and-validate"
+    "ci:build": "pnpm ci:migrate-and-seed && pnpm ci:codegen-and-validate && pnpm build"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.13.4",
