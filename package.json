@@ -9,6 +9,7 @@
     "lint": "next lint",
     "db:codegen": "kysely-codegen",
     "db:seed": "tsx src/db/seed.ts",
+    "db:validate-ci": "kysely-codegen --verify=true --env-file=.env",
     "db:migration": "tsx src/db/migration.ts",
     "db:migrate-up": "tsx src/db/migrate-up.ts",
     "db:migrate-down": "tsx src/db/migrate-down.ts",
