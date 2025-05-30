@@ -25,6 +25,7 @@ config({
 });
 
 export const env = createEnv({
+  skipValidation: process.env.SKIP_VALIDATION === "true",
   server: {
     DATABASE_URL: z.string().min(1, "DATABASE_URL cannot be empty!"),
   },
