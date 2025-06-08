@@ -7,11 +7,11 @@ import { type ComponentProps } from "react";
 
 import { cn } from "~/lib/utils";
 
-const navLinkVariants = cva("transition-colors", {
+const navLinkVariants = cva("transition", {
   variants: {
     variant: {
       default:
-        "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 hover:underline focus:underline focus:outline-none data-[active=true]:text-stone-900 data-[active=true]:dark:text-stone-50 data-[active=true]:font-medium",
+        "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-50 hover:underline focus:underline focus:outline-none data-[active=true]:text-stone-900 data-[active=true]:dark:text-stone-50 data-[active=true]:font-semibold",
     },
     size: {
       default: "text-base leading-6",

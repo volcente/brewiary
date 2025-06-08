@@ -1,7 +1,7 @@
 "use client";
 
 import { LucideMonitor, LucideMoon, LucideSun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -10,30 +10,45 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
+import { useTheme } from "~/hooks/useTheme";
+
+const themeIcons = {
+  system: <LucideMonitor />,
+  light: <LucideSun />,
+  dark: <LucideMoon />,
+} as const;
 
 export function ThemeSwitch() {
-  const { setTheme, resolvedTheme } = useTheme();
+  const { setTheme, theme, themes } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label="theme-switch">
-          {resolvedTheme === "dark" ? <LucideSun /> : <LucideMoon />}
+        <Button
+          className="size-9 sm:w-auto sm:h-9"
+          variant="outline"
+          aria-label="theme-switch"
+        >
+          <span className="hidden sm:inline-block capitalize">{theme}</span>
+          {themeIcons[theme]}
         </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          <LucideMonitor className="mr-2 size-4" />
-          <span>System</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          <LucideSun className="mr-2 size-4" />
-          <span>Light</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          <LucideMoon className="mr-2 size-4" />
-          <span>Dark</span>
-        </DropdownMenuItem>
+        {themes.map((theme) => (
+          <DropdownMenuItem key={theme} onClick={() => setTheme(theme)}>
+            {themeIcons[theme]}
+            <span className="capitalize">{theme}</span>
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

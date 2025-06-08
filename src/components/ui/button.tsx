@@ -10,15 +10,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-stone-900 text-stone-50 shadow-xs hover:bg-stone-900/90 focus-visible:border-stone-950 dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-50/90 dark:focus-visible:border-stone-300",
+          "bg-stone-900 text-stone-50  hover:bg-stone-900/90 focus-visible:border-stone-950 dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-50/90 dark:focus-visible:border-stone-300",
         destructive:
-          "bg-red-500 text-white shadow-xs hover:bg-red-500/90 focus-visible:ring-red-500/20 dark:bg-red-900 dark:hover:bg-red-900/90 dark:focus-visible:ring-red-900/20",
+          "bg-red-500 text-white  hover:bg-red-500/90 focus-visible:ring-red-500/20 dark:bg-red-900 dark:hover:bg-red-900/90 dark:focus-visible:ring-red-900/20",
         outline:
-          "border bg-white shadow-xs hover:bg-stone-100 hover:text-stone-900 dark:bg-stone-800/30 dark:border-stone-800 dark:hover:bg-stone-800/50 dark:text-stone-50",
+          "border bg-white border-stone-300/50 hover:bg-stone-100 hover:text-stone-900 dark:bg-stone-800 dark:border-stone-700/50 dark:hover:bg-stone-700/50 dark:hover:text-stone-50",
         secondary:
-          "bg-stone-100 text-stone-900 shadow-xs hover:bg-stone-100/80 dark:bg-stone-800 dark:text-stone-50 dark:hover:bg-stone-800/80",
+          "bg-stone-100 text-stone-900 hover:bg-stone-100/80 dark:bg-stone-800 dark:text-stone-50 dark:hover:bg-stone-800/80",
         ghost:
-          "hover:bg-stone-100 hover:text-stone-900 dark:hover:bg-stone-800/50 dark:hover:text-stone-50",
+          "hover:bg-stone-100 hover:text-stone-900 dark:hover:bg-stone-700/50 dark:hover:text-stone-50",
         link: "text-stone-900 underline-offset-4 hover:underline dark:text-stone-50",
       },
       size: {

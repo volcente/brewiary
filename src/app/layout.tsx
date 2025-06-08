@@ -16,7 +16,12 @@ export default function RootLayout({
       <body
         className={`min-h-screen w-full grid grid-rows-[auto_1fr] ${hankenGrotesk.variable}`}
       >
-        <ThemeProvider defaultTheme="system" enableColorScheme enableSystem>
+        <ThemeProvider
+          defaultTheme="system"
+          disableTransitionOnChange
+          enableColorScheme
+          enableSystem
+        >
           <Navbar />
           {children}
         </ThemeProvider>

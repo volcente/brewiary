@@ -15,4 +15,8 @@
   body {
     @apply bg-stone-50 text-stone-700 dark:text-stone-300 dark:bg-stone-900 antialiased font-display;
   }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
