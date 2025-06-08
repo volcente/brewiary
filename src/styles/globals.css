@@ -1,5 +1,18 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme inline {
-  --font-display: var(--font-space-grotesk), var(--font-sans);
+  --font-display: var(--font-hanken-grotesk), var(--font-sans);
+}
+
+@layer base {
+  * {
+    @apply border-stone-200 dark:border-stone-800 outline-stone-400/50 dark:outline-stone-600/50;
+  }
+
+  body {
+    @apply bg-stone-50 text-stone-700 dark:text-stone-300 dark:bg-stone-900 antialiased font-display;
+  }
 }

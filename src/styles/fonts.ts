@@ -1,9 +1,9 @@
-import { Space_Grotesk } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 
-export const spaceGrotesk = Space_Grotesk({
+export const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin", "latin-ext"],
   weight: "variable",
-  variable: "--font-space-grotesk",
+  variable: "--font-hanken-grotesk",
   adjustFontFallback: true,
   preload: true,
 });
