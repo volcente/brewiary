@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-commit-mono);
+}
+
+@theme {
+  --color-slate-*: initial;
+  --color-stone-*: initial;
+  --color-neutral-*: initial;
+  --color-zinc-*: initial;
+
+  --color-green-*: initial;
+  --color-lime-*: initial;
+  --color-orange-*: initial;
+  --color-cyan-*: initial;
+  --color-pink-*: initial;
+  --color-red-*: initial;
+  --color-violet-*: initial;
+  --color-fuchsia-*: initial;
+  --color-purple-*: initial;
+  --color-blue-*: initial;
+}
