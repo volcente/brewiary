@@ -6,10 +6,17 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db.generate": "drizzle-kit generate",
+    "db.migrate": "drizzle-kit migrate",
+    "db.seed": "tsx src/index.ts",
+    "db.studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "dotenv": "^17.2.2",
+    "drizzle-orm": "^0.44.5",
     "next": "15.5.2",
+    "pg": "^8.16.3",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
@@ -18,8 +25,10 @@
     "@eslint/js": "^9.35.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^20.19.13",
+    "@types/pg": "^8.15.5",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "drizzle-kit": "^0.31.4",
     "eslint": "^9.35.0",
     "eslint-config-next": "^15.5.2",
     "eslint-config-prettier": "^10.1.8",
@@ -27,6 +36,7 @@
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.13",
+    "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0"
   },
