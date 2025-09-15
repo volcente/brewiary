@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "compile": "next build --turbopack --experimental-build-mode compile",
     "start": "next start",
     "lint": "eslint",
+    "db.check": "drizzle-kit check",
     "db.generate": "drizzle-kit generate",
     "db.migrate": "drizzle-kit migrate",
     "db.seed": "tsx src/index.ts",
