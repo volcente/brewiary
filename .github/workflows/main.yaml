@@ -11,18 +11,31 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
+
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+        restore-keys: |
+          ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.json') }}-
+
       - name: Install dependencies
         run: pnpm install
+
       - name: Lint project
         run: pnpm lint
+
       - name: Validate db migrations
         run: pnpm db.check
+
       - name: Compile Next.js project
         run: pnpm compile
