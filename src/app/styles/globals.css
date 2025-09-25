@@ -6,10 +6,10 @@
 }
 
 @theme {
-  --color-slate-*: initial;
+  /* --color-slate-*: initial;
   --color-stone-*: initial;
   --color-neutral-*: initial;
-  --color-zinc-*: initial;
+  --color-zinc-*: initial; */
 
   --color-green-*: initial;
   --color-lime-*: initial;
