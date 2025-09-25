@@ -35,14 +35,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Generate Next.js types
-        run: pnpm typegen
-
       - name: Lint project
         run: pnpm lint
 
       - name: Validate db migrations
         run: pnpm db.check
+
+      - name: Generate route types and validate
+        run: pnpm typegen SKIP_VALIDATION=true && tsc --noEmit
 
       - name: Compile Next.js project
         run: pnpm compile SKIP_VALIDATION=true
