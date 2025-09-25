@@ -42,7 +42,7 @@ jobs:
         run: pnpm db.check
 
       - name: Generate route types and validate
-        run: pnpm typegen SKIP_VALIDATION=true && tsc --noEmit
+        run: SKIP_VALIDATION=true pnpm typegen && tsc --noEmit
 
       - name: Compile Next.js project
-        run: pnpm compile SKIP_VALIDATION=true
+        run: SKIP_VALIDATION=true pnpm compile
