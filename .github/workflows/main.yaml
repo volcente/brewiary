@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Cache
         uses: actions/cache@v4
@@ -41,5 +41,8 @@ jobs:
       - name: Validate db migrations
         run: pnpm db.check
 
+      - name: Generate route types and validate
+        run: SKIP_VALIDATION=true pnpm typegen && tsc --noEmit
+
       - name: Compile Next.js project
-        run: pnpm compile
+        run: SKIP_VALIDATION=true pnpm compile
