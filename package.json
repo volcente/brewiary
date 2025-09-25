@@ -14,7 +14,8 @@
 		"db.generate": "drizzle-kit generate",
 		"db.migrate": "drizzle-kit migrate",
 		"db.seed": "tsx src/index.ts",
-		"db.studio": "drizzle-kit studio"
+		"db.studio": "drizzle-kit studio",
+		"db.deploy": "pnpm db.check && pnpm db.generate && pnpm db.migrate"
 	},
 	"dependencies": {
 		"@t3-oss/env-nextjs": "^0.13.8",
