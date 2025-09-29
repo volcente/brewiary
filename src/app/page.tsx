@@ -5,7 +5,7 @@ export default function Home() {
 				Brewiary
 			</h1>
 
-			<small className='font-technical text-base text-gray-500 dark:text-gray-400'>
+			<small className='font-technical text-base text-stone-500 dark:text-stone-400'>
 				Let&apos;s make some coffee!
 			</small>
 		</main>

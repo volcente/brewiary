@@ -8,6 +8,10 @@ import { commitMono, spaceGrotesk } from './styles/fonts';
 export const metadata: Metadata = {
 	title: 'Brewiary',
 	description: 'Next Generation Coffee Companion',
+	applicationName: 'Brewiary',
+	appleWebApp: {
+		title: 'Brewiary',
+	},
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
